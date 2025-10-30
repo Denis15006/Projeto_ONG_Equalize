@@ -4,31 +4,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Projetos ONG EQUALIZE</title>
+    <title> Projetos - ONG EQUALIZE</title>
+    <link rel="stylesheet" href="/CSS/style.css">
 </head>
 
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo"></a>
-            <img src="images/logo.jpg" alt="Logo da ONG Equalize" width="140" height="60">
-            <nav aria-label="Navegação Principal">
-                <ul class="main-nav">
+            <a href="index.html" class="logo">
+                <img src="/images/logo.jpg" alt="Logo da ONG Equalize" width="140" height="60">
+            </a>
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="main-nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="projetos.html">Projetos</a></li>
                     <li><a href="cadastro.html">Cadastra-se Agora.</a></li>
                     <li><a href="doacao.html">Faça a sua doação</a></li>
                 </ul>
-                <h1> Nossos Projetos</h1>
             </nav>
+
+            <button class="hamburger" id="btn-hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+            </button>
+
         </div>
     </header>
-    <main>
-        <article class="projeto-item">
+    <main id="main-content">
+        <div class="container">
 
             <h3>A Música Salva Vidas</h3>
 
-            <img src="images/projeto1.jpg" alt="Crianças na aula de musica" class="responsive-img">
+            <img src="/images/projeto1.jpg" alt="Crianças na aula de musica" class="responsive-img">
 
             <p>
                 Neste projeto, usamos a música como uma poderosa ferramenta de transformação social,
@@ -50,15 +56,13 @@
                 Essas ações incentivam a participação de todos e fortalecem os laços
                 sociais da nossa comunidade.
             </p>
+        </div>
 
-        </article>
-
-
-        <article class="projeto-item">
+        <div class="container">
 
             <h3>A arte além do limite</h3>
 
-            <img src="images/projeto2.jpg" alt="Diferentes etinias" class="responsive-img">
+            <img src="/images/projeto2.jpg" alt="Diferentes etinias" class="responsive-img">
 
             <p>
                 Neste projeto, usamos a arte como uma poderosa ferramenta de transformação social,
@@ -82,17 +86,24 @@
                 É a arte saindo do ateliê e fortalecendo os laços de todo o bairro.
             </p>
 
-        </article>
+        </div>
 
-        <h3>Precisamos da sua ajuda para expandir nossos projetos!</h3>
-        <ul>
-            <li><a href="cadastro.html">Cadastra-se Agora.</a></li>
-            <li><a href="doacao.html">Faça a sua doação</a></li>
-        </ul>
+        <div class="container">
+
+            <h3>Precisamos da sua ajuda para expandir nossos projetos!</h3>
+            <ul>
+                <li><a href="cadastro.html" class="btn">Cadastra-se Agora.</a></li>
+                <li><a href="doacao.html" class="btn btn-secundario">Faça a sua doação</a></li>
+            </ul>
+        </div>
     </main>
-    <footer>
-        <p>&copy; 2025 ONG EQUALIZE. Todos os direitos reservados.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 ONG EQUALIZE. Todos os direitos reservados.</p>
+        </div>
     </footer>
+    <script src="/JS/script.js"></script>
+
 </body>
 
 </html>

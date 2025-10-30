@@ -5,25 +5,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro - ONG EQUALIZE</title>
+    <link rel="stylesheet" href="/CSS/style.css">
 </head>
 
 <body>
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="images/logo.jpg" alt="Logo da ONG Equalize" width="140" height="60">
+                <img src="/images/logo.jpg" alt="Logo da ONG Equalize" width="140" height="60">
             </a>
-            <nav aria-label="Navegação Principal">
-                <ul class="main-nav">
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="main-nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="projetos.html">Projetos</a></li>
                     <li><a href="cadastro.html">Cadastra-se Agora.</a></li>
                     <li><a href="doacao.html">Faça a sua doação</a></li>
                 </ul>
             </nav>
+
+            <button class="hamburger" id="btn-hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+            </button>
+
+
         </div>
     </header>
-    <main>
+    <main id="main-content">
         <div class="container">
             <h1>Junte-se a Nós!</h1>
             <p>Preencha seus dados para se tornar um voluntário.</p>
@@ -97,7 +104,12 @@
     </main>
 
     <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 ONG EQUALIZE. Todos os direitos reservados.</p>
+        </div>
     </footer>
+
+    <script src="/JS/script.js"></script>
 </body>
 
 </html>

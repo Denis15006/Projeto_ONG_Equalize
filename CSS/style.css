@@ -1,0 +1,387 @@
+/* =======================================================
+   1. IMPORTAÇÃO DAS FONTES (Google Fonts)
+========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
+
+/* =======================================================
+   2. RESET BÁSICO E ESTILOS GLOBAIS
+========================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f4f7f6; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #111111;
+    margin-bottom: 16px; /* (antes era --esp-2) */
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.75rem; } /* 44px */
+h2 { font-size: 2.0rem; }  /* 32px */
+h3 { font-size: 1.5rem; }  /* 24px */
+
+p {
+    margin-bottom: 16px;
+}
+
+a {
+    color: #0056b3; /* (cor-primaria) */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #004494; /* (cor-primaria-hover) */
+    text-decoration: underline;
+}
+
+img, picture {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =======================================================
+   3. CLASSE DE LAYOUT (O Container)
+========================================================== */
+.container {
+    width: 90%; 
+    max-width: 1100px; /* (largura-container) */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main {
+    padding-top: 32px;    /* (esp-4) */
+    padding-bottom: 48px; /* (esp-6) */
+}
+
+/* =======================================================
+   4. HEADER E NAVEGAÇÃO (DESKTOP-FIRST)
+========================================================== */
+.site-header {
+    width: 100%;
+    padding: 16px 0; /* (esp-2) */
+    background-color: #ffffff; /* (cor-fundo-cards) */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* (sombra-padrao) */
+    /* Removemos o 'position: sticky' */
+}
+
+/* Alinha o logo (esquerda) e o menu (direita) */
+.site-header .container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.logo img {
+    max-height: 60px;
+    width: auto;
+}
+
+/* --- Menu de Desktop (Agora é o padrão) --- */
+.main-nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav-list li {
+    margin-left: 24px; /* (esp-3) */
+}
+
+.main-nav-list a {
+    display: block;
+    padding: 8px 16px; /* (esp-1) (esp-2) */
+    color: #333333;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px; /* (raio-borda) */
+}
+
+.main-nav-list a:hover,
+.main-nav-list a:focus {
+    background-color: #f4f7f6; /* (cor-fundo-pagina) */
+    color: #0056b3; /* (cor-primaria) */
+}
+
+/* --- Menu Hambúrguer (Começa escondido) --- */
+.hamburger {
+    display: none; /* ESCONDIDO NO DESKTOP */
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 110;
+}
+.hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: block;
+    position: relative;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #111111; /* (cor-texto-titulos) */
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+.hamburger-inner {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.hamburger-inner::before {
+    top: -10px;
+}
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+/* =======================================================
+   5. FOOTER
+========================================================== */
+.site-footer {
+    padding: 24px 0; /* (esp-3) */
+    background-color: #111111; /* (cor-texto-titulos) */
+    color: #f4f7f6; /* (cor-fundo-pagina) */
+    text-align: center;
+}
+.site-footer p {
+    margin: 0;
+    font-size: 14px; /* (tam-pequeno) */
+}
+
+
+/* =======================================================
+   6. RESPONSIVIDADE (Apenas 1 Breakpoint)
+   Aqui é onde "arrumamos" o site para celular.
+========================================================== */
+@media (max-width: 768px) {
+
+    /* 1. Esconde o menu de desktop */
+    .main-nav {
+        display: none;
+    }
+
+    /* 2. Mostra o botão hambúrguer */
+    .hamburger {
+        display: block;
+    }
+
+    /* 3. Estilos do menu mobile quando ele for aberto (via JavaScript) */
+    .main-nav.is-open {
+        display: flex; /* Muda de 'none' para 'flex' */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff; /* (cor-fundo-cards) */
+        z-index: 90;
+        
+        /* Centraliza os links */
+        justify-content: center;
+        align-items: center;
+    }
+    .main-nav.is-open .main-nav-list {
+        flex-direction: column; /* Links em coluna */
+        align-items: center;
+    }
+    .main-nav.is-open .main-nav-list li {
+        margin: 16px 0; /* (esp-2) */
+    }
+    .main-nav.is-open .main-nav-list a {
+        font-size: 1.5rem; /* (tam-h3) */
+    }
+
+    /* 4. Animação do "X" do Hambúrguer */
+    .hamburger.is-open .hamburger-inner {
+        transform: rotate(45deg);
+    }
+    .hamburger.is-open .hamburger-inner::before {
+        top: 0;
+        transform: rotate(-90deg);
+    }
+    .hamburger.is-open .hamburger-inner::after {
+        bottom: 0;
+        opacity: 0;
+    }
+}/* =======================================================
+   7. COMPONENTES: BOTÕES
+   Estilo padrão para todos os botões do site
+========================================================== */
+button,
+.btn { /* Você pode usar a classe .btn em links <a> */
+    display: inline-block; /* Permite definir padding e margin */
+    padding: 12px 24px; /* (esp-1.5) (esp-3) */
+    font-family: 'Montserrat', sans-serif; /* Fonte de títulos */
+    font-size: 16px; /* (tam-corpo) */
+    font-weight: 700;
+    color: #ffffff; /* Texto branco */
+    background-color: #0056b3; /* (cor-primaria) */
+    border: none;
+    border-radius: 8px; /* (raio-borda) */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Estado :hover (mouse em cima) */
+button:hover,
+.btn:hover {
+    background-color: #004494; /* (cor-primaria-hover) */
+    transform: translateY(-2px); /* Efeito sutil de "levantar" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estado :focus (navegação por teclado) */
+button:focus,
+.btn:focus {
+    outline: 3px solid #0056b3; /* (cor-primaria) */
+    outline-offset: 3px;
+}
+
+/* Estado :active (momento do clique) */
+button:active,
+.btn:active {
+    transform: translateY(0); /* Volta ao normal */
+    box-shadow: none;
+}
+
+/* --- Variação: Botão Secundário (Laranja) --- */
+.btn-secundario {
+    background-color: #e67e22; /* (cor-secundaria) */
+}
+
+.btn-secundario:hover {
+    background-color: #d35400; /* (cor-secundaria-hover) */
+}
+
+
+/* =======================================================
+   8. COMPONENTES: CARDS DE PROJETO
+   (para a página projetos.html)
+========================================================== */
+.lista-projetos {
+    /* (Esta é uma classe nova que vamos adicionar no HTML) */
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+    gap: 24px; /* (esp-3) Espaço entre os cards */
+    
+    /* Centraliza os cards caso não preencham a linha inteira */
+    justify-content: center; 
+}
+
+.projeto-item {
+    background-color: #ffffff; /* (cor-fundo-cards) */
+    border-radius: 8px; /* (raio-borda) */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* (sombra-padrao) */
+    overflow: hidden; /* Garante que a imagem não vaze */
+    
+    /* Define a largura base do card */
+    width: 100%; /* Ocupa 100% no celular (padrão) */
+    max-width: 350px; /* Limite máximo de largura do card */
+
+    display: flex;
+    flex-direction: column; /* Organiza o card verticalmente */
+}
+
+.projeto-item img {
+    width: 100%;
+    height: 200px; /* Altura fixa para a imagem */
+    object-fit: cover; /* Garante que a imagem cubra a área */
+}
+
+.projeto-item-conteudo {
+    /* (Esta é uma classe nova para o HTML) */
+    padding: 24px; /* (esp-3) */
+    
+    /* Faz o conteúdo crescer para ocupar o espaço */
+    flex-grow: 1; 
+}
+
+.projeto-item-conteudo h3 {
+    margin-top: 0;
+}
+
+/* =======================================================
+   9. COMPONENTES: FORMULÁRIOS
+   (para a página cadastro.html)
+========================================================== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px; /* (esp-1) */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddddd; /* (cor-bordas) */
+    border-radius: 8px; /* (raio-borda) */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+/* --- Validação Visual (Bônus, mas muito útil) --- */
+
+/* Estilo quando o campo é OBRIGATÓRIO e está VÁLIDO */
+:required:valid {
+    border-color: #28a745; /* (cor-sucesso) */
+}
+
+/* Estilo quando o campo é OBRIGATÓRIO e está INVÁLIDO 
+   (só aparece depois que o usuário tentou enviar) */
+form:invalid :required:invalid {
+    border-color: #dc3545; /* (cor-erro) */
+}
+
+/* Foco no campo */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0056b3; /* (cor-primaria) */
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
+
+/* O botão de submit já foi estilizado pela regra geral 'button' */
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+}
+
+/* =======================================================
+   10. RESPONSIVIDADE (Ajustes nos novos componentes)
+========================================================== */
+@media (max-width: 768px) {
+    /* Na versão de iniciante, os cards já são 100% 
+       por padrão, então não precisamos mexer neles. 
+       Mas vamos ajustar os formulários.
+    */
+    .btn-submit {
+        width: auto; /* No celular, o botão não precisa ser 100% */
+    }
+}

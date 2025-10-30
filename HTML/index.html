@@ -5,36 +5,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> ONG EQUALIZE</title>
-
+    <link rel="stylesheet" href="/CSS/style.css">
 </head>
 
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo"></a>
-            <img src="images/logo.jpg" alt="Logo da ONG Equalize" width="140" height="60">
-
-            <nav aria-label="Navegação Principal">
-                <ul class="main-nav">
+            <a href="index.html" class="logo">
+                <img src="/images/logo.jpg" alt="Logo da ONG Equalize" width="140" height="60">
+            </a>
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="main-nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="projetos.html">Projetos</a></li>
                     <li><a href="cadastro.html">Cadastra-se Agora.</a></li>
                     <li><a href="doacao.html">Faça a sua doação</a></li>
                 </ul>
             </nav>
+
+            <button class="hamburger" id="btn-hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+            </button>
+
+
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero" aria-labelledby="hero-title">
             <div class="container">
                 <h1 id="hero-title"> ONG EQUALIZE</h1>
                 <h3 id="hero-subtitle">Com a arte transformamos vidas!</h3>
-                <img src="images/Banner1.jpg" alt="Banner1" class="responsive-img">
+                <img src="/images/Banner1.jpg" alt="Banner1" class="responsive-img">
             </div>
         </section>
 
-        <section id="sobre">
+        <div class="container">
             <h2>Sobre o Projeto</h2>
             <p>
                 Fundado em 2018 pela saudosa Dona Maria, o nosso projeto nasceu com o propósito de ajudar aqueles que
@@ -59,7 +65,7 @@
                 Pessoas interessadas em apoiar o projeto podem se envolver de diversas maneiras, seja como voluntários,
                 doadores ou parceiros.
             </p>
-        </section>
+        </div>>
 
         <section class="contato" aria-labelledby="contato-title">
             <div class="container">
@@ -76,6 +82,8 @@
             <p>&copy; 2025 ONG EQUALIZE. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script src="/JS/script.js"></script>
 </body>
 
 </html>
