@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Define o tipo de documento como HTML5 -->
+    <meta charset="utf-8">
+    <!-- Torna o site responsivo para diferentes tamanhos de tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Título exibido na aba do navegador -->
+    <title>Faça sua Doação - ONG EQUALIZE</title>
+    <!-- Link para o arquivo CSS externo com os estilos da página -->
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+    <!-- Início do cabeçalho do site -->
+    <header class="site-header">
+        <div class="container">
+            <!-- Logotipo da ONG com link para a página inicial -->
+            <a href="index.html" class="logo">
+                <img src="/IMAGENS/logo.jpg" alt="Logo da ONG Equalize" width="140" height="60">
+            </a>
+
+            <!-- Menu de navegação principal -->
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="main-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="cadastro.html">Cadastra-se Agora</a></li>
+                    <li><a href="doacao.html">Faça a sua doação</a></li>
+                </ul>
+            </nav>
+
+            <!-- Botão modo escuro -->
+            <button id="btn-tema" class="btn-modo" aria-label="Ativar modo escuro"
+                title="Ativar modo escuro">🌙</button>
+
+            <!-- Botão "hamburger" (menu móvel para telas pequenas) -->
+            <button class="hamburger" id="btn-hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </header>
+    <!-- Fim do cabeçalho -->
+
+    <!-- Início do conteúdo principal -->
+    <!-- OBS: havia dois sinais de ">" no id (corrigido abaixo) -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Título principal da página -->
+            <h1>Faça a Diferença</h1>
+
+            <!-- Texto explicativo sobre a importância das doações -->
+            <p>
+                Sua doação transforma arte em oportunidade e ajuda a manter vivo o
+                legado de Dona Maria.
+            </p>
+            <p>
+                Cada contribuição nos ajuda a comprar materiais artísticos,
+                instrumentos musicais e a manter nossos espaços abertos para a comunidade.
+            </p>
+
+            <!-- Linha divisória -->
+            <hr>
+
+            <!-- Seção de doação via PIX -->
+            <h2>Doe via PIX</h2>
+            <p>
+                Você pode doar qualquer valor usando o QR Code abaixo ou a nossa chave PIX.
+            </p>
+
+            <!-- Exibição do QR Code -->
+            <h3>QR Code</h3>
+            <img src="/IMAGENS/QR_CODE.png" alt="QR Code para doação PIX" width="200">
+
+            <!-- Exibição da chave PIX manual -->
+            <h3>Chave PIX (CNPJ)</h3>
+            <p>
+                Se preferir, copie manualmente nossa chave:
+            </p>
+            <p>
+                <strong>12.345.678/0001-99</strong>
+            </p>
+
+            <hr>
+
+            <!-- Seção para doação por transferência bancária -->
+            <h2>Transferência Bancária (TED/DOC)</h2>
+            <p>Se preferir, você pode doar diretamente em nossa conta:</p>
+
+            <!-- Lista com informações bancárias da ONG -->
+            <ul>
+                <li><strong>Banco:</strong> 000 - Banco Fictício S.A.</li>
+                <li><strong>Agência:</strong> 1234</li>
+                <li><strong>Conta Corrente:</strong> 56789-0</li>
+                <li><strong>Nome:</strong> ONG EQUALIZE</li>
+                <li><strong>CNPJ:</strong> 12.345.678/0001-99</li>
+            </ul>
+        </div>
+    </main>
+    <!-- Fim do conteúdo principal -->
+
+    <!-- Rodapé do site -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 ONG EQUALIZE. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Importa o arquivo JavaScript responsável por interações do site -->
+    <script src="/JAVA/script.js"></script>
+
+</body>
+
+</html>
