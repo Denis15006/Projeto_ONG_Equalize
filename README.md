@@ -13,32 +13,32 @@ O site é composto por 4 páginas principais:
 3.  **Cadastro (`cadastro.html`):** Um formulário completo para quem quer ser voluntário.
 4.  **Doação (`doacao.html`):** Uma página com informações para quem quer doar (incluindo um QR Code de PIX).
 
-## 🛠️ Tecnologias que Usei
+##🛠️ Tecnologias que Usei
 
-* **HTML5:** Usei para criar toda a estrutura e o conteúdo do site. Tentei usar as tags corretas para cada coisa (como `<header>`, `<main>`, `<nav>` e `<form>`).
-* **CSS3:** Usei para fazer todo o design. Foi aqui que aprendi a:
-    * Usar o **Flexbox** para alinhar o menu e os "cards" dos projetos.
-    * Criar um **Design Responsivo** (usando `@media queries`) para que o site funcione bem no computador e no telemóvel.
-    * Estilizar componentes, como botões, formulários e o menu.
-* **JavaScript (JS):** Usei para adicionar interatividade ao site. O JS é responsável por três coisas:
-    1.  Fazer o **Menu Hambúrguer** (do telemóvel) abrir e fechar quando é clicado.
-    2.  Mostrar uma **mensagem de sucesso** ("Obrigado por se cadastrar!") depois que o usuário preenche o formulário, sem recarregar a página.
-    3.  Fazer o botão **"Copiar Chave PIX"** na página de doação funcionar.
+HTML5 (Semântico)
+Usei para criar toda a estrutura e o conteúdo do site, focando no uso correto das tags semânticas (como <header>, <main>, <nav>, <fieldset> e <article>).
 
-## 🚀 Como Ver o Site a Funcionar
+CSS3 (Responsivo com Flexbox e Grid)
+Usei para fazer todo o design. Os principais aprendizados foram:
+* Design System: Criação de um sistema com Variáveis CSS (cores, fontes, espaçamento).
+* Layouts Modernos: Uso de CSS Grid para o layout geral e Flexbox para componentes (menu, cards).
+* Design Responsivo: @media queries para que o site funcione perfeitamente no desktop e no mobile.
+* Componentes: Estilização de botões, formulários e o menu hambúrguer.
 
-**Importante:** Este projeto usa JavaScript para carregar as páginas (uma técnica chamada SPA). Por causa disso, o site **não vai funcionar** se você apenas clicar duas vezes no arquivo `index.html`.
+JavaScript (ES6+)
+Usei para adicionar toda a interatividade ao site. O JS é responsável por:
+* Manipulação do DOM: Fazer o Menu Hambúrguer abrir e fechar.
+* Modo Escuro (Dark Mode): Alternar o tema do site e salvar a preferência no LocalStorage.
+* Templates JS: Carregar os "cards" de projetos dinamicamente na página.
+* Máscaras de Input: Formatar os campos de CPF, CEP e Telefone no formulário de cadastro.
+* Eventos: Fazer o botão "Copiar Chave PIX" funcionar e exibir uma mensagem de sucesso no formulário sem recarregar a página.
 
-Você precisa abrir o projeto usando um servidor local.
 
-### O Jeito Mais Fácil (Com a Extensão Live Server)
+# Projeto: Site da ONG EQUALIZE
 
-1.  Abra a pasta do projeto no **VS Code**.
-2.  Procure a extensão chamada **"Live Server"** e instale-a.
-3.  Clique com o botão direito no seu arquivo `index.html`.
-4.  Escolha a opção **"Open with Live Server"**.
+**[Clique aqui para ver o site ao vivo! 🚀](https://denis15006.github.io/Projeto_ONG_Equalize/)**
 
-O seu navegador vai abrir automaticamente e o site vai funcionar perfeitamente, com toda a navegação e o JavaScript!
+Este é o meu primeiro projeto de site completo! ...
 
 ---
 
