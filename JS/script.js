@@ -132,5 +132,91 @@ document.addEventListener('DOMContentLoaded', () => {
             containerProjetos.innerHTML += htmlDoProjeto;
         });
     }
+    // =======================================================
+    // 6️⃣ MÁSCARAS DE INPUT DO FORMULÁRIO (REQUISITO)
+    // =======================================================
+
+    // --- Seleciona os inputs ---
+    const inputCPF = document.getElementById('cpf');
+    const inputTelefone = document.getElementById('telefone');
+    const inputCEP = document.getElementById('cep');
+
+    // --- Adiciona os "escutadores" de evento ---
+
+    if (inputCPF) {
+        // Escuta o evento 'input' (cada vez que o usuário digita)
+        inputCPF.addEventListener('input', (e) => {
+            e.target.value = maskCPF(e.target.value);
+        });
+    }
+
+    if (inputTelefone) {
+        inputTelefone.addEventListener('input', (e) => {
+            e.target.value = maskTelefone(e.target.value);
+        });
+    }
+
+    if (inputCEP) {
+        inputCEP.addEventListener('input', (e) => {
+            e.target.value = maskCEP(e.target.value);
+        });
+    }
+
+    // --- Funções que aplicam as máscaras ---
+
+    /**
+     * Formata o valor para CPF (XXX.XXX.XXX-XX)
+     */
+    function maskCPF(value) {
+        // 1. Limpa tudo que não for dígito
+        let v = value.replace(/\D/g, '');
+        // 2. Limita a 11 dígitos
+        v = v.substring(0, 11);
+        // 3. Aplica o primeiro ponto (após 3 dígitos)
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        // 4. Aplica o segundo ponto (após 6 dígitos)
+        v = v.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+        // 5. Aplica o hífen (após 9 dígitos)
+        v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
+        return v;
+    }
+
+    /**
+     * Formata o valor para Telefone (XX) XXXXX-XXXX ou (XX) XXXX-XXXX
+     */
+    function maskTelefone(value) {
+        let v = value.replace(/\D/g, '');
+        let len = v.length; // Conta o número de dígitos puros
+
+        v = v.substring(0, 11); // Limita a 11 dígitos
+
+        // Coloca os parênteses
+        v = v.replace(/^(\d{2})/, '($1) ');
+
+        if (len > 10) {
+            // Se for CELULAR (11 dígitos)
+            // (XX) XXXXX-XXXX
+            v = v.replace(/(\(\d{2}\) \d{5})(\d)/, '$1-$2');
+        } else {
+            // Se for FIXO (10 dígitos)
+            // (XX) XXXX-XXXX
+            v = v.replace(/(\(\d{2}\) \d{4})(\d)/, '$1-$2');
+        }
+        return v;
+    }
+
+    /**
+     * Formata o valor para CEP (XXXXX-XXX)
+     */
+    function maskCEP(value) {
+        let v = value.replace(/\D/g, '');
+        v = v.substring(0, 8); // Limita a 8 dígitos
+        // Aplica o hífen (após 5 dígitos)
+        v = v.replace(/(\d{5})(\d)/, '$1-$2');
+        return v;
+    }
+
 
 }); // 🔚 fim do DOMContentLoaded
+
+

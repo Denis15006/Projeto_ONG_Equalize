@@ -1,10 +1,10 @@
 /* =======================================================
-   1. IMPORTAÇÃO DAS FONTES (Google Fonts)
+    1. IMPORTAÇÃO DAS FONTES (Google Fonts)
 ========================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
 
 /* =======================================================
-   2. RESET BÁSICO E ESTILOS GLOBAIS
+    2. RESET BÁSICO E ESTILOS GLOBAIS
 ========================================================== */
 *,
 *::before,
@@ -34,17 +34,9 @@ h6 {
     line-height: 1.2;
 }
 
-h1 {
-    font-size: 2.75rem;
-}
-
-h2 {
-    font-size: 2.0rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
+h1 { font-size: 2.75rem; }
+h2 { font-size: 2.0rem; }
+h3 { font-size: 1.5rem; }
 
 p {
     margin-bottom: 16px;
@@ -54,7 +46,6 @@ a {
     color: #0056b3;
     text-decoration: none;
 }
-
 a:hover {
     color: #004494;
     text-decoration: underline;
@@ -68,7 +59,7 @@ picture {
 }
 
 /* =======================================================
-   3. CLASSE DE LAYOUT (O Container)
+    3. CLASSE DE LAYOUT (O Container)
 ========================================================== */
 .container {
     width: 90%;
@@ -82,16 +73,10 @@ main {
     padding-bottom: 48px;
 }
 
-/* =======================================================
-   3.1 CENTRALIZAÇÃO DE CONTEÚDO (Textos e Imagens)
-========================================================== */
-
-/* Centraliza textos dentro das seções */
+/* Centralização */
 .container {
     text-align: center;
 }
-
-/* Centraliza e mantém imagens responsivas */
 .responsive-img,
 .container img {
     display: block;
@@ -101,7 +86,7 @@ main {
 }
 
 /* =======================================================
-   4. HEADER E NAVEGAÇÃO (DESKTOP-FIRST)
+    4. HEADER E NAVEGAÇÃO (DESKTOP-FIRST)
 ========================================================== */
 .site-header {
     width: 100%;
@@ -121,15 +106,17 @@ main {
     width: auto;
 }
 
+/* Estilos Desktop por padrão */
+.main-nav {
+    display: block;
+}
 .main-nav-list {
     display: flex;
     list-style: none;
 }
-
 .main-nav-list li {
     margin-left: 24px;
 }
-
 .main-nav-list a {
     display: block;
     padding: 8px 16px;
@@ -138,14 +125,13 @@ main {
     text-decoration: none;
     border-radius: 8px;
 }
-
 .main-nav-list a:hover,
 .main-nav-list a:focus {
     background-color: #f4f7f6;
     color: #0056b3;
 }
 
-/* --- Menu Hambúrguer --- */
+/* Hambúrguer escondido por padrão */
 .hamburger {
     display: none;
     padding: 10px;
@@ -173,22 +159,13 @@ main {
     border-radius: 4px;
     transition: transform 0.3s ease;
 }
+.hamburger-inner { top: 50%; transform: translateY(-50%); }
+.hamburger-inner::before { top: -10px; }
+.hamburger-inner::after { bottom: -10px; }
 
-.hamburger-inner {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.hamburger-inner::before {
-    top: -10px;
-}
-
-.hamburger-inner::after {
-    bottom: -10px;
-}
 
 /* =======================================================
-   5. FOOTER
+    5. FOOTER
 ========================================================== */
 .site-footer {
     padding: 24px 0;
@@ -196,25 +173,24 @@ main {
     color: #f4f7f6;
     text-align: center;
 }
-
 .site-footer p {
     margin: 0;
     font-size: 14px;
 }
 
 /* =======================================================
-   6. RESPONSIVIDADE
+    6. RESPONSIVIDADE (LÓGICA INVERTIDA - DESKTOP-FIRST)
 ========================================================== */
 @media (max-width: 768px) {
-
+    /* Esconde o menu desktop e mostra o hambúrguer */
     .main-nav {
         display: none;
     }
-
     .hamburger {
         display: block;
     }
 
+    /* Estilos do menu aberto (copiados do seu original) */
     .main-nav.is-open {
         display: flex;
         position: fixed;
@@ -227,29 +203,23 @@ main {
         justify-content: center;
         align-items: center;
     }
-
     .main-nav.is-open .main-nav-list {
         flex-direction: column;
         align-items: center;
     }
-
     .main-nav.is-open .main-nav-list li {
         margin: 16px 0;
     }
-
     .main-nav.is-open .main-nav-list a {
         font-size: 1.5rem;
     }
-
     .hamburger.is-open .hamburger-inner {
         transform: rotate(45deg);
     }
-
     .hamburger.is-open .hamburger-inner::before {
         top: 0;
         transform: rotate(-90deg);
     }
-
     .hamburger.is-open .hamburger-inner::after {
         bottom: 0;
         opacity: 0;
@@ -257,7 +227,7 @@ main {
 }
 
 /* =======================================================
-   7. COMPONENTES: BOTÕES
+    7. COMPONENTES: BOTÕES
 ========================================================== */
 button,
 .btn {
@@ -298,30 +268,48 @@ button:active,
 .btn-secundario {
     background-color: #e67e22;
 }
-
 .btn-secundario:hover {
     background-color: #d35400;
 }
 
-/* =======================================================
-   8. COMPONENTES: CARDS DE PROJETO
-========================================================== */
-.lista-projetos {
+/* Botões da pág. Projetos */
+.cta-botoes {
+    list-style-type: none;
+    padding-left: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+    gap: 16px;
     justify-content: center;
 }
 
+
+/* =======================================================
+    8. COMPONENTES: CARDS DE PROJETO (com Flexbox)
+========================================================== */
+/* Em vez de Grid, um 'iniciante' usaria Flexbox para o layout dos cards */
+.lista-projetos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+    gap: 24px;       /* Espaço entre os cards */
+    justify-content: center; /* Centraliza os cards */
+    
+    /* Esses estilos estavam no HTML, é melhor ter eles no CSS */
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Um iniciante poderia 'chutar' um tamanho fixo 
+   em vez de usar um grid fluido 
+*/
 .projeto-item {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    width: 100%;
-    max-width: 350px;
+    width: 350px; /* Tamanho fixo "mágico" */
+    max-width: 100%; /* Garante que não quebre no mobile */
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .projeto-item img {
@@ -340,21 +328,25 @@ button:active,
 }
 
 /* =======================================================
-   9. COMPONENTES: FORMULÁRIOS
+    9. COMPONENTES: FORMULÁRIOS
 ========================================================== */
-.form-group {
+/* Um seletor 'fraco' que pode quebrar fácil, 
+   mas é comum um iniciante fazer 
+*/
+form div {
     margin-bottom: 20px;
+    text-align: left;
 }
 
-.form-group label {
+form label {
     display: block;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+form input,
+form select,
+form textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #dddddd;
@@ -363,6 +355,7 @@ button:active,
     font-size: 16px;
 }
 
+/* Estilos de validação (copiados do seu original) */
 :required:valid {
     border-color: #28a745;
 }
@@ -371,9 +364,9 @@ form:invalid :required:invalid {
     border-color: #dc3545;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+form input:focus,
+form select:focus,
+form textarea:focus {
     outline: none;
     border-color: #0056b3;
     box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
@@ -386,16 +379,7 @@ form:invalid :required:invalid {
 }
 
 /* =======================================================
-   10. RESPONSIVIDADE (Ajustes nos novos componentes)
-========================================================== */
-@media (max-width: 768px) {
-    .btn-submit {
-        width: auto;
-    }
-}
-
-/* =======================================================
-   11. BOTÃO MODO CLARO/ESCURO
+    10. BOTÃO MODO CLARO/ESCURO
 ========================================================== */
 .btn-modo {
     background: none;
@@ -406,88 +390,70 @@ form:invalid :required:invalid {
     margin-left: 1rem;
     transition: transform 0.3s;
 }
-
 .btn-modo:hover {
     transform: scale(1.1);
 }
 
 /* =======================================================
-   12. MODO ESCURO
+    11. MODO ESCURO (Tudo "hard-coded")
 ========================================================== */
 body.dark-mode {
     background-color: #121212;
     color: #f0f0f0;
-    transition: background-color 0.4s, color 0.4s;
 }
 
-body.dark-mode header,
-body.dark-mode nav,
-body.dark-mode footer {
+body.dark-mode .site-header {
+    background-color: #1e1e1e;
+}
+body.dark-mode .main-nav.is-open {
     background-color: #1e1e1e;
 }
 
-body.dark-mode a {
-    color: #9ad4ff;
-}
-
-body.dark-mode .cartao,
-body.dark-mode .projeto-item {
-    background-color: #2a2a2a;
-    border-color: #444;
-}
-
-body.dark-mode button {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #555;
-}
-
-/* Ajusta containers e seções */
-body.dark-mode .container,
-body.dark-mode main,
-body.dark-mode section {
-  background-color: #1c1c1c;
-  color: #eaeaea;
-}
-
-/* Ajusta inputs e áreas de texto, caso tenha formulários */
-body.dark-mode input,
-body.dark-mode textarea {
-  background-color: #2a2a2a;
-  color: #fff;
-  border: 1px solid #444;
-}
-
-/* Efeito ao passar o mouse em links */
-body.dark-mode a:hover {
-  color: #03dac6;
-}
-
-/* Efeito ao passar o mouse em links */
-body.dark-mode a:hover {
-  color: #03dac6;
-}
-
-/* =======================================================
-   13. TRANSIÇÃO SUAVE DE CORES (Opcional)
-========================================================== */
-body.dark-mode h1,
-body.dark-mode h2,
-body-dark-mode h3,
-body.dark-mode p,
-body.dark-mode a {
-  transition: color 0.4s ease;
-}
-
-/* =======================================================
-   14. CORES CLARAS DOS TÍTULOS NO MODO ESCURO
-========================================================== */
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode h4,
 body.dark-mode h5,
 body.dark-mode h6 {
-  color: #ffffff; /* branco puro */
+    color: #ffffff;
+}
+body.dark-mode .hamburger-inner,
+body.dark-mode .hamburger-inner::before,
+body.dark-mode .hamburger-inner::after {
+    background-color: #ffffff;
 }
 
+body.dark-mode a {
+    color: #9ad4ff;
+}
+body.dark-mode .main-nav-list a:hover,
+body.dark-mode .main-nav-list a:focus {
+    color: #9ad4ff;
+}
+
+body.dark-mode .site-footer {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.dark-mode .projeto-item {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* Coloque isso no seu style.css */
+
+.info-bancaria {
+    /* 1. Remove as "bolinhas" */
+    list-style-type: none;
+    
+    /* 2. Remove o recuo à esquerda que a lista tem */
+    padding-left: 0;
+}

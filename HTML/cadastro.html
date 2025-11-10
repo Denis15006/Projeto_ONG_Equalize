@@ -16,7 +16,7 @@
     <!-- Início do cabeçalho (header) do site -->
     <header class="site-header">
         <div class="container">
-            <!-- Logotipo com link que leva de volta para a página inicial -->
+               <!-- Logotipo da ONG com link para a página inicial -->
             <a href="index.html" class="logo">
                 <img src="/IMAGENS/logo.jpg" alt="Logo da ONG Equalize" width="140" height="60">
             </a>
@@ -57,79 +57,83 @@
             <!-- method="POST" define o método de envio dos dados -->
             <form action="#" method="POST">
 
-                <!-- Campo: Nome completo -->
-                <div>
-                    <label for="nome">Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" required>
-                </div>
-                <br>
+                <fieldset>
+                    <legend>Seus Dados Pessoais</legend>
 
-                <!-- Campo: E-mail -->
-                <div>
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <br>
+                    <!-- Campo: Nome completo -->
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
 
-                <!-- Campo: CPF -->
-                <!-- Usa o atributo pattern para validar o formato XXX.XXX.XXX-XX -->
-                <div>
-                    <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" required placeholder="XXX.XXX.XXX-XX"
-                        pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite o CPF no formato XXX.XXX.XXX-XX">
-                </div>
-                <br>
 
-                <!-- Campo: Telefone -->
-                <!-- minlength garante que o número tenha o tamanho mínimo exigido -->
-                <div>
-                    <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" minlength="14"
-                        title="Inclua o DDD e o número completo.">
-                </div>
-                <br>
+                    <!-- Campo: E-mail -->
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-                <!-- Campo: Data de nascimento -->
-                <div>
-                    <label for="nascimento">Data de Nascimento:</label>
-                    <input type="date" id="nascimento" name="nascimento" required>
-                </div>
-                <br>
 
-                <!-- Campo: Endereço -->
-                <div>
-                    <label for="endereco">Endereço (Rua, Av, etc.):</label>
-                    <input type="text" id="endereco" name="endereco" required>
-                </div>
-                <br>
+                    <!-- Campo: CPF -->
+                    <!-- Usa o atributo pattern para validar o formato XXX.XXX.XXX-XX -->
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" required placeholder="XXX.XXX.XXX-XX"
+                            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite o CPF no formato XXX.XXX.XXX-XX">
+                    </div>
 
-                <!-- Campo: CEP -->
-                <!-- pattern garante o formato XXXXX-XXX -->
-                <div>
-                    <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" required placeholder="XXXXX-XXX" pattern="\d{5}-\d{3}"
-                        title="Digite o CEP no formato XXXXX-XXX">
-                </div>
-                <br>
 
-                <!-- Campo: Cidade -->
-                <div>
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" required>
-                </div>
-                <br>
+                    <!-- Campo: Telefone -->
+                    <!-- minlength garante que o número tenha o tamanho mínimo exigido -->
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX"
+                            pattern="\(\d{2}\) \d{4,5}-\d{4}" title="Formato: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX"
+                            required>
+                    </div>
 
-                <!-- Campo: Estado (select) -->
-                <!-- Usuário deve escolher uma opção da lista -->
-                <div>
-                    <label for="estado">Estado:</label>
-                    <select id="estado" name="estado" required>
-                        <option value="">Selecione...</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                    </select>
-                </div>
-                <br>
+
+                    <!-- Campo: Data de nascimento -->
+                    <div class="form-group">
+                        <label for="nascimento">Data de Nascimento:</label>
+                        <input type="date" id="nascimento" name="nascimento" required>
+                    </div>
+
+
+                    <!-- Campo: Endereço -->
+                    <div class="form-group">
+                        <label for="endereco">Endereço (Rua, Av, etc.):</label>
+                        <input type="text" id="endereco" name="endereco" required>
+                    </div>
+
+
+                    <!-- Campo: CEP -->
+                    <!-- pattern garante o formato XXXXX-XXX -->
+                    <div class="form-group">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" name="cep" required placeholder="XXXXX-XXX" pattern="\d{5}-\d{3}"
+                            title="Digite o CEP no formato XXXXX-XXX">
+                    </div>
+
+
+                    <!-- Campo: Cidade -->
+                    <div class="form-group">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" required>
+                    </div>
+
+
+                    <!-- Campo: Estado (select) -->
+                    <!-- Usuário deve escolher uma opção da lista -->
+                    <div class="form-group">
+                        <label for="estado">Estado:</label>
+                        <select id="estado" name="estado" required>
+                            <option value="">Selecione...</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                        </select>
+                    </div>
+                </fieldset>
 
                 <!-- Botão para enviar o formulário -->
                 <button type="submit">Enviar Cadastro</button>
@@ -146,7 +150,7 @@
     </footer>
 
     <!-- Importa o arquivo JavaScript (funções do menu, etc.) -->
-    <script src="/JAVA/script.js"></script>
+    <script src="/JS/script.js"></script>
 </body>
 
 </html>
